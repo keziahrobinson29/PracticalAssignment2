@@ -2,6 +2,7 @@ package com.example.practical.screens
 
 import android.content.Intent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.shape.CircleShape
@@ -10,6 +11,8 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -25,65 +28,70 @@ import com.example.practical.NavRoutes
 fun Details(navController: NavHostController) {
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-        ,
-        //horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxSize().background(
+                brush = Brush.linearGradient(listOf(
+
+
+                        Color(255, 128, 128),
+                    Color(255, 102, 102),
+                    Color(255, 77, 77),
+                    Color(255, 51, 51),
+
+                    )
+                )),
+
+
 
         ) {
+
         Row() {
             Text(
                 text = "Name: Keziah Robinson",
-                color = MaterialTheme.colors.primary,
-                fontSize = MaterialTheme.typography.h6.fontSize,
+                color = Color.Black,
+                fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
             )
         }
-        Row() {
+        Row( modifier = Modifier.padding(start = 10.dp)) {
             Text(
-                text = "Course: ICT in Application Development",
-                color = MaterialTheme.colors.primary,
-                fontSize = MaterialTheme.typography.h6.fontSize,
+                text = "Course: Application Development",
+                color = Color.Black,
+                fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
+
             )
         }
-        Row() {
+        Row(modifier = Modifier.padding(start = (10.dp))) {
             Text(
                 text = "Department: Information Technology",
-                color = MaterialTheme.colors.primary,
-                fontSize = MaterialTheme.typography.h6.fontSize,
+                color = Color.Black,
+                fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
             )
         }
-        Row(
-
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.Bottom,
-            horizontalArrangement = Arrangement.SpaceBetween
-
-        ) {
+        Row() {
             Text(
 
                 text = "Student Number : 219113149",
-                color = MaterialTheme.colors.primary,
-                fontSize = MaterialTheme.typography.h6.fontSize,
-                fontWeight = FontWeight.Bold
+                color = Color.Black,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+
             )
         }
-        val context = LocalContext.current
-        val visible: MutableState<Boolean> = remember { mutableStateOf(false) }
+
+
         Spacer(modifier = Modifier.height(30.dp))
         Row(
+            modifier = Modifier.fillMaxWidth().padding(start = 80.dp),)
 
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.Bottom,
-            horizontalArrangement = Arrangement.Center
-
-        ) {
+        {
             Button(
                 onClick = {/*Dummy Button for now*/ },
-            //    colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.white)),
+                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = android.R.color.white)),
                 shape = RoundedCornerShape(50),
                 elevation = ButtonDefaults.elevation(
                     defaultElevation = 10.dp
@@ -93,15 +101,17 @@ fun Details(navController: NavHostController) {
 
 
                 Text(
-                    text = "Current Modules"
+                    text = "Current Modules",
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
                 )
 
 
             }
 
             Button(
-                onClick = { navController.navigate(NavRoutes.HomeScreen.route) },
-               // colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.white)),
+                onClick = { navController.navigate(NavRoutes.Welcome.route) },
+                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = android.R.color.white)),
                 shape = RoundedCornerShape(50),
                 elevation = ButtonDefaults.elevation(
                     defaultElevation = 10.dp
@@ -111,7 +121,9 @@ fun Details(navController: NavHostController) {
 
 
                 Text(
-                    text = "Back To Home"
+                    text = "Go Back",
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
                 )
 
 
